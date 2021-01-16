@@ -94,7 +94,7 @@ ul li:nth-child(n){
 ul li:last-child{
   list-style: none;
   padding: 20px;
-  margin: 10px;
+  margin: 20px 20px 20px 0;
   border-bottom: none;
 }
 </style>
