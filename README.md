@@ -1,4 +1,4 @@
-# Table Foods
+# Foods Table
 ## Descrição do Projeto  ❗
 - Tabela Dinâmica para adicionar até 5 itens.
 ## Tecs ⛓
