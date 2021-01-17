@@ -1,13 +1,19 @@
 <template>
-<div>
-  <h1 :style="{ color }">Minha Lista</h1>
+<div id="box">
   <input 
     id="input"
     @keyup.enter="addFood"
     type="text" 
-    v-model="currentFood">
-  <button @click="addFood">
-    Add!
+    v-model="currentFood"
+    placeholder="Coloque Aqui!">
+  <button 
+    @click="addFood">
+    Adicionar
+  </button>
+  <button
+    id="btn_reset"
+    @click="reseta">
+    Resetar
   </button><br>
   <food-list 
     @stop="handleStop"
@@ -22,7 +28,6 @@ export default {
   components: { FoodList },
   data: () => ({
     currentFood: "",
-    color: "#79C7C5",
     link: "http://www.g1.globo.com",
     foods: ['Maçã', 'Pera']
   }),
@@ -35,6 +40,9 @@ export default {
     addFood () {
       this.foods.push(this.currentFood)
       this.currentFood = ''
+    },
+    reseta () {
+      window.location.reload()
     }
   }
 }
@@ -42,59 +50,80 @@ export default {
 <style>
 body{
   text-align: center;
-  background-color:#ADE1E5;
+  background-color:#fff;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-h1{
-  text-shadow: 1px 1px black;
-  padding: 5px;
-  font-size: 50px;
+*{
+  box-sizing: border-box;
+}
+#box{
+  padding: 50px;
+  text-align: center;
 }
 input{
   width: 200px;
-  height: 30px;
+  height: 50px;
 
   margin: 2px;
   text-align: center;
 
-  border-radius: 5px;
-  border: 2px solid #000501;
+  border: none;
+  border-bottom: 2px solid #FF9F1C;
 
-  background-color: #0005017a;
+  background-color: none;
+  color: #FF9F1C;
+  font-weight: 800;
+}
+input::placeholder{
+  color: #FF9F1C;
 }
 input:focus{
+  outline: none; /* Retira a borda quando focar */
   transition-duration: 2s;
-  background-color: #00050142;
 }
 button{
   width: 200px;
-  height: 36px;
+  height: 56px;
 
   margin: 2px;
-  border-radius: 5px;
+  border: 1px solid #FF9F1C;
+  border-radius: 10px;
 
-  color: #ADE1E5;
-  background: #0005017a;
+  cursor: pointer;
+
+  color: #FF9F1C;
+  background: transparent;
+  text-transform: uppercase;
+  font-weight: 800;
 }
-div{
-  background-color: #0005012a;
-  height: 700px;
-  border-radius: 5px;
+button:focus{
+  outline: none;
+}
+#btn_reset{
+  color: rgb(255, 0, 0);
+  border: 1px solid #ff0000;
+}
+.box_list{
+  margin: 20px 20px 20px -15px;
 }
 ul{
-  background-color: #0005017a;
-  margin: 100px 50px;
+  margin: 0 auto;
+  width: 50%;
+  text-align: left;
+}
+ul li:hover{
+  background: #ecbc98;
+  cursor: pointer;
 }
 ul li:nth-child(n){
   list-style: none;
   padding: 20px;
-  margin: 20px 20px 20px 0;
-  border-bottom: 1px solid #00050159;
+  color: #EE8434;
 }
 ul li:last-child{
   list-style: none;
   padding: 20px;
-  margin: 20px 20px 20px 0;
   border-bottom: none;
+  color: #EE8434;
 }
 </style>

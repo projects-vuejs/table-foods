@@ -1,9 +1,11 @@
 <template>
-  <ul>
-    <li 
-    v-for="(food, index) in foods"
-    :key="`${food}-${index}`">{{ food }}</li>
-  </ul>
+  <div class="box_list">
+    <ul>
+        <li 
+        v-for="(food, index) in foods"
+        :key="`${food}-${index}`">{{ food }}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -17,7 +19,7 @@ export default {
     watch: {
         foods () {
             if(this.foods.length === MAX_FOODS){
-                this.$emit('stop', 'Igor falou que está cheio')
+                this.$emit('stop', 'Sua cesta está cheia!!')
             }
             
         }
